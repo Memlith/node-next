@@ -12,8 +12,8 @@ export default class UserController {
     }
   }
 
-  //POST
-  static async create(req: Request, res: Response) {
+  //GET
+  static async show(req: Request, res: Response) {
     const { id } = req.params;
     try {
       const user = await prisma.user.findUnique({
@@ -25,6 +25,18 @@ export default class UserController {
     }
   }
 
+  // POST
+  static async create(req: Request, res: Response) {
+    const { name, email } = req.body;
+    try {
+      const updatedUser = await prisma.user.create({
+        data: { name, email },
+      });
+      res.status(200).json(updatedUser);
+    } catch (error) {
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
   // PUT
   static async update(req: Request, res: Response) {
     const { id } = req.params;
