@@ -1,4 +1,15 @@
 services:
+  server:
+    container_name: server
+    image: server
+    build:
+      context: ./server
+      dockerfile: server.dockerfile
+    ports:
+      - 4000:4000
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+      
   db:
     container_name: db
     image: postgres:17

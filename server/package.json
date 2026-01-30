@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "Caio Simonassi",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
     "@prisma/client": "^7.3.0",
