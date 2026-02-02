@@ -1,4 +1,17 @@
 services:
+  client:
+    container_name: client
+    image: client
+    build:
+      context: ./client
+      dockerfile: client.dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:4000
+    restart: always
+    depends_on:
+      - server
   server:
     container_name: server
     image: server
@@ -9,6 +22,8 @@ services:
       - 4000:4000
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+    depends_on:
+      - db
       
   db:
     container_name: db
