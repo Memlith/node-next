@@ -1,5 +1,7 @@
 # Node & Next Dockerized Template
 
+`docker composee build`
+
 ### Node.js
 
 ##### Development `npm run dev`
