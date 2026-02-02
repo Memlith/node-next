@@ -7,10 +7,10 @@ const app = express();
 
 //json
 app.use(express.json());
-//routes
-app.use(routes);
 //cors
 app.use(cors());
+//routes
+app.use(routes);
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
